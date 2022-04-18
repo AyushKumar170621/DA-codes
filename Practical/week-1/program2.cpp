@@ -50,13 +50,11 @@ int main()
     int ind=bin_search(a,0,n,key,&c);
     if(ind == -1)
     {
-        printf("Key not found \n");
-        printf("Total number of compare %d\n",c);
+        cout<<"Not Present"<<endl;
     }
     else
     {
-        printf("Key found at index %d\n",ind);
-        printf("Total number of compare %d\n",c);
+        cout<<"Present  "<<ind<<endl;
     }
     return 0;
 }

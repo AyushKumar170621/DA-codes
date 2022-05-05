@@ -7,23 +7,25 @@ using namespace std;
 
 int main()
 {
-    int n,key;
-    cout<<"Enter size of array :";
-    cin>>n;
-    int a[n];
-    for(int i=0;i<n;i++)
-        cin>>a[i];
-    cout<<"Enter key :";
-    cin>>key;
-    int count = -1;
-    for(int i=0;i<n;i++)
-    {
-        if(key == a[i])
-            ++count;
+    int t;
+    cin>>t;
+    while(t--){
+        int n,key;
+        cin>>n;
+        int a[n];
+        for(int i=0;i<n;i++)
+            cin>>a[i];
+        cin>>key;
+        int count = -1;
+        for(int i=0;i<n;i++)
+        {
+            if(key == a[i])
+                ++count;
+        }
+        if(count == -1)
+            cout<<"Key is Not Present"<<endl;
+        else
+            cout<<key<<" - "<<count+1<<endl;
     }
-    if(count == -1)
-        cout<<"Key is not present in array"<<endl;
-    else
-        cout<<"Key is present and number of occurence is "<<count+1<<endl;
     return 0;
 }

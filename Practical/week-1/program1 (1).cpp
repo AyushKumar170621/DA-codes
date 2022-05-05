@@ -22,24 +22,21 @@ int main()
     while(t--)
     {
         int n,key;
-        printf("Enter size of array :");
-        scanf("%d",&n);
+        cin>>n;
         int a[n];
-        printf("Enter elements in array :");
         for(int i=0;i<n;i++)
         {
             cin>>a[i];
         }
-        printf("Enter key to search :");
-        scanf("%d",&key);
+        cin>>key;
         int ind=search(a,n,key);
         if(ind == -1)
         {
-            cout<<"Not Present"<<endl;
+            cout<<"Not Present "<<n<<endl;
         }
         else
         {
-            cout<<"Present "<<ind<<endl;
+            cout<<"Present "<<ind + 1<<endl;
         }
     }
         return 0;

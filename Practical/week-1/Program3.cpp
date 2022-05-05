@@ -1,3 +1,5 @@
+/*3.Given an already sorted array of positive integers, design an algorithm and implement it using aprogram to find whether a given key element is present in the sorted array or not.
+Source code:-*/
 #include <iostream>
 #include <cmath>
 using namespace std;

@@ -1,29 +1,38 @@
-/*2)Given a sorted array of positive integers design a algo and implement it using a programm to find three indexes 
-i,j,k such that arr[i]+arr[j]=arr[k];*/
-#include<iostream>
+/*3.Given an array of nonnegative integers, design an algorithm and a program to count the number of pairs of integers such that their difference is equal to a given key, K.
+Source code:-*/
+#include <iostream>
+
 using namespace std;
 
 int main()
 {
-    int n;
-    cout<<"Enter size of array :";
-    cin>>n;
-    int a[n];
-    for(int i=0;i<n;i++)
-        cin>>a[i];
-    int i,j,k;
-    for(i=0;i<n-2;i++)
+    int t;
+    cin>>t;
+    while(t--)
     {
-        for(j=i+1 ;j < n-1 ;j++)
+        int n,key,c=0;
+        cin>>n;
+        int a[n];
+        for(int i=0;i<n;i++)
+            cin>>a[i];
+        cin>>key;
+        int i,j,k,f=0;
+        for(i=0;i<n-1;i++)
         {
-            for(k=j+1 ; k<n ;k++)
+            for(j=i+1 ;j < n ;j++)
             {
-                if(a[i]+a[j] == a[k])
-                    cout<<i<<" "<<j<<" "<<k<<endl;
-                if(a[i]+a[j] > a[k])
-                    break;
+                if(abs(a[i] - a[j])==key)
+                {    
+                    c++;
+                    f=1;
+                }
             }
         }
+        if(f != 0)
+            cout<<c<<endl;
+        else
+            cout<<"No such Pair Exist"<<endl;
     }
+    
     return 0;
 }

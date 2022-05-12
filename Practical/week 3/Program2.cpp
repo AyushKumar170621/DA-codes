@@ -1,3 +1,4 @@
+2. Given an unsorted array of integers, design an algorithm and implement a program to sort this array using selection sort. Your program should also find number of comparisons and number of swaps required. Source code :-
 #include <iostream>
 
 using namespace std;
@@ -16,7 +17,7 @@ void printArr(int a[],int n)
     }
     cout<<endl;
 }
-int selectionSort(int a[],int n)
+int selectionSort(int a[],int n,int *swp)
 {
     int cnt=0;
     for(int i=0 ;i < n-1 ;i++)
@@ -24,30 +25,34 @@ int selectionSort(int a[],int n)
         int pos=i,min=a[i];
         for(int j=i+1;j<n;j++)
         {
+            cnt++;
             if(a[j] < min)
             {
-                cnt++;
                 min=a[j];
                 pos=j;
             }
         }
-        if(i != pos)
-        {
+        
+            (*swp)++;
             a[pos] = a[i];
             a[i]=min;
-        }
+        
     }
     return cnt;
 }
 int main()
 {
-    int n;
-    cout<<"Enter no of element of array :";
-    cin >> n;
-    int a[n];
-    readArr(a,n);
-    int com = selectionSort(a,n);
-    printArr(a,n);
-    cout<<"Total no of Comparison is "<<com<<endl;
+    int t;
+    cin>>t;
+    while(t--){
+        int n,sw=0;
+        cin >> n;
+        int a[n];
+        readArr(a,n);
+        int com = selectionSort(a,n,&sw);
+        printArr(a,n);
+        cout<<"Comparison "<<com<<endl;
+        cout<<"Swap "<<sw<<endl;
+    }
     return 0;
 }

@@ -1,3 +1,5 @@
+/*3. Given an unsorted array of integers, design an algorithm and implement it using a program to find Kth smallest or largest element in the array.
+Source code :-*/
 #include <iostream>
 
 using namespace std;
@@ -61,25 +63,23 @@ void readArr(int a[],int n)
         cin>>a[i];
     }
 }
-void printArr(int a[],int n)
-{
-    for(int i = 0 ; i < n ; i++)
-    {
-        cout<<a[i]<<" ";
-    }
-    cout<<endl;
-}
 int main()
-{
-    int n,k;
-    cout<<"Enter Size of array:";
-    cin>>n;
-    int arr[n];
-    readArr(arr,n);
-    mergesort(arr,0,n-1);
-    cout<<"Enter value of k :";
-    cin>>k;
-    cout<<k<<"Th smallest number is :"<<arr[k-1]<<endl;;
-    cout<<k<<"Th largest number is :"<<arr[n-k]<<endl;
+{   
+    int t;
+    cin>>t;
+    while(t--){
+        int n,k;
+        cin>>n;
+        int arr[n];
+        readArr(arr,n);
+        mergesort(arr,0,n-1);
+        cin>>k;
+        if(k <= n){
+        cout<<arr[k-1]<<endl;;
+        //cout<<k<<"Th largest number is :"<<arr[n-k]<<endl;
+        }
+        else 
+            cout<<"not present"<<endl;
+    }
     return 0;
 }

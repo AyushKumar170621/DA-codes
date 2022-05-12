@@ -1,3 +1,4 @@
+1.Given an unsorted array of integers, design an algorithm and a program to sort the array using insertion sort. Your program should be able to find number of comparisons and shifts ( shifts total number of times the array elements are shifted from their place) required for sorting the array. Source code:-
 #include <iostream>
 
 using namespace std;
@@ -16,33 +17,38 @@ void printArr(int a[],int n)
     }
     cout<<endl;
 }
-int bubbleSort(int a[],int n)
+int insertionSort(int a[],int n,int *s)
 {
     int cnt=0;
-    for(int i=0 ;i < n-1 ;i++)
+    for(int i=1 ;i < n ;i++)
     {
-        for(int j=0;j<n-1-i;j++)
+        int key = a[i];
+        int j= i -1 ;
+        (*s)++;
+        while(j >= 0 && key < a[j] )
         {
-            if(a[j] > a[j+1])
-            {
-                cnt++;
-                a[j]=a[j]^a[j+1];
-                a[j+1]=a[j]^a[j+1];
-                a[j] =a[j] ^ a[j+1];
-            }
+            cnt++;
+            (*s)++;
+            a[j+1]=a[j];
+            j--;
         }
+        a[j+1]=key;
     }
     return cnt;
 }
 int main()
 {
-    int n;
-    cout<<"Enter no of element of array :";
-    cin >> n;
-    int a[n];
-    readArr(a,n);
-    int com = bubbleSort(a,n);
-    printArr(a,n);
-    cout<<"Total no of Comparison is "<<com<<endl;
+    int t;
+    cin>>t;
+    while(t--){
+        int n,sh=0;
+        cin >> n;
+        int a[n];
+        readArr(a,n);
+        int com = insertionSort(a,n,&sh);
+        printArr(a,n);
+        cout<<"Comparison "<<com<<endl;
+        cout<<"Shift "<<sh<<endl;
+}
     return 0;
 }
